@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>Document</title>
+    
 </head>
 
 <body>
@@ -25,7 +26,7 @@
     </ol>
     <!-- random number in the middle that will be randomly chosen when game starts -->
     <div class="randomnumberbox">
-        <h3>Target Number</h3>
+        <h3>Target Number: </h3>
         <div class="randomnumber"></div>
     </div>
 
@@ -34,7 +35,7 @@
         <div class="losses">Losses:</div>
     </div>
     <!-- four pictures of crystals that act as buttons/inputs -->
-    <div class="crystals">
+    <div id="crystals">
         <img src="assets/images/blue-diamond.jpg" alt="blue" id="blue">
         <img src="assets/images/red-drop.jpg" alt="red" id="red">
         <img src="assets/images/yellow-round.png" alt="yellow"  id="yellow">
@@ -46,6 +47,7 @@
     </div>
 
     <button id="restartGame">Reset</button>
-</body>
 
+    
+</body>
 </html>

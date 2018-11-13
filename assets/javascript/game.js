@@ -18,9 +18,10 @@
 // targetnumber needs to be compared to invisiblenumber
 // invisiblenumber increases by the amount assigned to each gem
 // every time a gem is clicked, call the other function that runs that if else statement to compare to targetnumber
+$(document).ready(function(){
 
 var targetNumber;
-var invisibleNumber;
+var gameNumber = 0;
 var gemNumbers = [];
 var gem1 = 1;
 var gem2 = gemNumbers[0];
@@ -31,8 +32,18 @@ var gem4 = gemNumbers[2];
 function randomInterger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+
 for (var i = 0; i < 3; i++) {
     gemNumbers.push(randomInterger(2, 15));
 };
 console.log(gemNumbers);
 
+targetNumber = randomInterger(40, 100);
+console.log(targetNumber);
+
+$("#blue").click(addToTarget());
+
+function addToTarget() {
+    
+}
+});
