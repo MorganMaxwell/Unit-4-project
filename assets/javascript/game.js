@@ -1,4 +1,4 @@
-// make a randnumgen between 30-100, call it targetnumber
+
 // make a function that reads if they got to the target number, and if so, increase wins by 1
 // maybe in the same function use an if else statement to increase losses by 1 if they go over
 // if (invisiblenumber === targetnumber) 
@@ -10,9 +10,6 @@
 // else keep waiting?
 
 
-// then make an array of four numbers
-// one of them HAS TO BE 1, OR ELSE THE GAME CANNOT GUARANTEE A WIN EACH TIME
-// the other three can be random numbers between 2-15;
 // at the beginning of the game, those numbers randomly out of the Array, and assign that value to the gems for the rest of the game
 
 // targetnumber needs to be compared to invisiblenumber
@@ -24,47 +21,83 @@ $(document).ready(function () {
     var gameNumber = 0;
     var gemNumbers = [];
     var gem1 = 1;
-    var gem2 = gemNumbers[0];
-    var gem3 = gemNumbers[1];
-    var gem4 = gemNumbers[2];
+    var wins = 0;
+    var losses = 0;
+    var resetSwitch = false;
 
-    $(".randomnumber").text(gameNumber);
+    gameStart();
 
-    function randomInterger(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    function gameStart() {
+        gemNumbers = [];
+        gameNumber = 0;
+        $(".score-number").text(gameNumber);
 
-    for (var i = 0; i < 3; i++) {
-        gemNumbers.push(randomInterger(2, 15));
+        function randomInterger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        for (var i = 0; i < 3; i++) {
+            gemNumbers.push(randomInterger(2, 15));
+        };
+        console.log(gemNumbers);
+
+        if (resetSwitch) {
+            resetSwitch = false;
+            wins = 0;
+            losses = 0;
+            gameStart
+        };
+
+        targetNumber = randomInterger(40, 100);
+        console.log(targetNumber);
+        $(".randomnumber").text(targetNumber);
+
+        $(".wins").text("Wins: " + wins);
+        $(".losses").text("Losses: " + losses);
+
+
     };
-    console.log(gemNumbers);
-
-    targetNumber = randomInterger(40, 100);
-    console.log(targetNumber);
-
-    
 
     function addBlueToGame() {
         gameNumber = gameNumber + gem1;
-        $(".randomnumber").text(gameNumber);
+        $(".score-number").text(gameNumber);
+        winLoseCheck();
     };
-    function addredToGame() {
-        gameNumber = gameNumber + gem2;
-        $(".randomnumber").text(gameNumber);
+    function addRedToGame() {
+        gameNumber = gameNumber + gemNumbers[0];
+        $(".score-number").text(gameNumber);
+        winLoseCheck();
     };
-
-    function addyellowToGame() {
-        gameNumber = gameNumber + gem3;
-        $(".randomnumber").text(gameNumber);
+    function addYellowToGame() {
+        gameNumber = gameNumber + gemNumbers[1];
+        $(".score-number").text(gameNumber);
+        winLoseCheck();
     };
-
-    function addgreenToGame() {
-        gameNumber = gameNumber + gem4;
-        $(".randomnumber").text(gameNumber);
+    function addGreenToGame() {
+        gameNumber = gameNumber + gemNumbers[2];
+        $(".score-number").text(gameNumber);
+        winLoseCheck();
     };
 
     $("#blue").on("click", addBlueToGame);
-    $("#red").on("click", addredToGame);
-    $("#yellow").on("click", addyellowToGame);
-    $("#green").on("click", addgreenToGame);
+    $("#red").on("click", addRedToGame);
+    $("#yellow").on("click", addYellowToGame);
+    $("#green").on("click", addGreenToGame);
+    $("#restartGame").on("click", reset);
+
+    function reset() {
+        resetSwitch = true;
+        gameStart();
+    }
+
+    function winLoseCheck() {
+        if (targetNumber === gameNumber) {
+            wins = wins + 1;
+            gameStart();
+        }
+        else if (gameNumber > targetNumber) {
+            losses = losses + 1;
+            gameStart();
+        };
+    };
 });
