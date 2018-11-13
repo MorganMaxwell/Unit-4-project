@@ -18,32 +18,53 @@
 // targetnumber needs to be compared to invisiblenumber
 // invisiblenumber increases by the amount assigned to each gem
 // every time a gem is clicked, call the other function that runs that if else statement to compare to targetnumber
-$(document).ready(function(){
+$(document).ready(function () {
 
-var targetNumber;
-var gameNumber = 0;
-var gemNumbers = [];
-var gem1 = 1;
-var gem2 = gemNumbers[0];
-var gem3 = gemNumbers[1];
-var gem4 = gemNumbers[2];
+    var targetNumber;
+    var gameNumber = 0;
+    var gemNumbers = [];
+    var gem1 = 1;
+    var gem2 = gemNumbers[0];
+    var gem3 = gemNumbers[1];
+    var gem4 = gemNumbers[2];
 
+    $(".randomnumber").text(gameNumber);
 
-function randomInterger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+    function randomInterger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-for (var i = 0; i < 3; i++) {
-    gemNumbers.push(randomInterger(2, 15));
-};
-console.log(gemNumbers);
+    for (var i = 0; i < 3; i++) {
+        gemNumbers.push(randomInterger(2, 15));
+    };
+    console.log(gemNumbers);
 
-targetNumber = randomInterger(40, 100);
-console.log(targetNumber);
+    targetNumber = randomInterger(40, 100);
+    console.log(targetNumber);
 
-$("#blue").click(addToTarget());
-
-function addToTarget() {
     
-}
+
+    function addBlueToGame() {
+        gameNumber = gameNumber + gem1;
+        $(".randomnumber").text(gameNumber);
+    };
+    function addredToGame() {
+        gameNumber = gameNumber + gem2;
+        $(".randomnumber").text(gameNumber);
+    };
+
+    function addyellowToGame() {
+        gameNumber = gameNumber + gem3;
+        $(".randomnumber").text(gameNumber);
+    };
+
+    function addgreenToGame() {
+        gameNumber = gameNumber + gem4;
+        $(".randomnumber").text(gameNumber);
+    };
+
+    $("#blue").on("click", addBlueToGame);
+    $("#red").on("click", addredToGame);
+    $("#yellow").on("click", addyellowToGame);
+    $("#green").on("click", addgreenToGame);
 });
