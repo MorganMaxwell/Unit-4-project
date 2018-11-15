@@ -39,6 +39,7 @@ li {
 
 .randomnumberbox {
     background: yellowgreen;
+    font-size: 30px;
 }
 
 .wins {
@@ -54,6 +55,8 @@ li {
 }
 .score {
     background: darkred;
+    height: 30px;
+    font-size: 25px;
 }
 
 #restartGame {

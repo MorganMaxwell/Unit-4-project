@@ -20,6 +20,7 @@ $(document).ready(function () {
     var targetNumber;
     var gameNumber = 0;
     var gemNumbers = [];
+    // I made gem1 be = to 1 to guarantee a win each time 
     var gem1 = 1;
     var wins = 0;
     var losses = 0;
@@ -30,7 +31,7 @@ $(document).ready(function () {
     function gameStart() {
         gemNumbers = [];
         gameNumber = 0;
-        $(".score-number").text(gameNumber);
+        $(".score-number").text("Your score this game is: " + gameNumber);
 
         function randomInterger(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -45,7 +46,7 @@ $(document).ready(function () {
             resetSwitch = false;
             wins = 0;
             losses = 0;
-            gameStart
+            gameStart();
         };
 
         targetNumber = randomInterger(40, 100);
@@ -60,22 +61,22 @@ $(document).ready(function () {
 
     function addBlueToGame() {
         gameNumber = gameNumber + gem1;
-        $(".score-number").text(gameNumber);
+        $(".score-number").text("Your score this game is: " + gameNumber);
         winLoseCheck();
     };
     function addRedToGame() {
         gameNumber = gameNumber + gemNumbers[0];
-        $(".score-number").text(gameNumber);
+        $(".score-number").text("Your score this game is: " + gameNumber);
         winLoseCheck();
     };
     function addYellowToGame() {
         gameNumber = gameNumber + gemNumbers[1];
-        $(".score-number").text(gameNumber);
+        $(".score-number").text("Your score this game is: " + gameNumber);
         winLoseCheck();
     };
     function addGreenToGame() {
         gameNumber = gameNumber + gemNumbers[2];
-        $(".score-number").text(gameNumber);
+        $(".score-number").text("Your score this game is: " + gameNumber);
         winLoseCheck();
     };
 
