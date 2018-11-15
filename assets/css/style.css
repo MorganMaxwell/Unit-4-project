@@ -1,4 +1,63 @@
+body {
+    margin-left: 20%;
+    margin-top: 5%;
+    text-align: center;
+    width: 850px;
+}
+
+.title {
+    height: 50px;
+    background: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.rules {
+    height: 50px;
+    background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.list {
+    height: 150px;
+    background: lightgreen;
+}
+li {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
 #blue, #yellow, #red, #green{
     height: 50px;
     width: 50px;
+}
+
+.randomnumberbox {
+    background: yellowgreen;
+}
+
+.wins {
+    background: yellow;
+}
+
+.losses {
+    background: orange;
+}
+
+#crystals {
+    background: darkorange;
+}
+.score {
+    background: darkred;
+}
+
+#restartGame {
+    margin-top: 10%;
+    height: 25px;
+    width: 60px;
 }
